@@ -38,6 +38,18 @@ d=numeros_array;
 printf("%lf %lf",d,*(d+2));
 
 ¿Por qué funciona el asignar numeros_array a un puntero a double?
+
+4.- ¿Que valor tiene z tras ejecutar el siguiente código?  ¡Usa el debug!
+int x =10;
+int y = 20;
+int z[]={1,2,3};
+int *ptri;
+
+ptri = &x;
+y = *ptri;
+
+*ptri = 0;
+ptri=&z[0]; // ptri=z;
 */
 
 
@@ -58,10 +70,22 @@ printf("%lf %lf",d,*(d+2));
     printf("%p %p",&cadena[0],cadena);*/
 
     //3
-    double numeros_array[]={2.3,3.3,4.4,5.5};
+    /*double numeros_array[]={2.3,3.3,4.4,5.5};
     double* d;
     d=numeros_array;
-    printf("%lf %lf",d,*(d+2));
+    printf("%lf %lf",*d,*(d+2));*/
+
+    //4
+    int x =10;
+    int y = 20;
+    int z[]={1,2,3};
+    int *ptri;
+
+    ptri = &x;
+    y = *ptri;
+
+    *ptri = 0;
+    ptri=&z[0]; // ptri=z;
 
     return 0;
  }
