@@ -42,21 +42,34 @@ struct str_Revisa_Mensual
 typedef struct str_Libro Libro;
 typedef struct str_Revisa_Mensual Revista;
 
-struct str_item
+/*struct str_item
 {
-    Libro libro;
-    Revista revista;
+    struct str_Libro Libro; //Libro libro;
+    struct str_Revisa_Mensual Revista; //Revista revista;
+    char tipo;
+};*/
+
+union u_Item{
+    struct str_Libro libro;
+    struct str_Revisa_Mensual revista;
+};
+
+struct str_item{
+    union u_Item item;
     char tipo;
 };
 
-typedef struct str_item Item;
+//typedef struct str_item Item;
+
+const int MAX=100;
 
 int main(int argc, char const *argv[])
 {
-    Item tienda[100];
+    struct str_item list[MAX]; //Item tienda[100];
     int i=0;
     char car,elem;
-
+    printf("-----------\nTAM: %lu bytes \n-----------\n", sizeof(struct str_item)*MAX);
+    /*
     printf("Introduce el caracter i para insertar un nuevo elemento, o v para verlos todos. Finaliza con f");
     car = getchar();
     while(car!='f'){
@@ -102,6 +115,6 @@ int main(int argc, char const *argv[])
         }
         printf("Introduce el caracter i para insertar un nuevo elemento, o v para verlos todos. Finaliza con f");
         car=getchar();
-    }
+    }*/
     return 0;
 }
