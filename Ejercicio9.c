@@ -66,9 +66,9 @@ int main(int argc, char const *argv[])
             if(elem=='l'){
                 tienda[i].tipo=elem;
                 printf("Introduce el titulo del libro: ");
-                scanf("%200s",&tienda[i].libro.titulo);
+                scanf("%s",&tienda[i].libro.titulo);
                 printf("Introduce el autor: ");
-                scanf("%200s",&tienda[i].libro.autor);
+                scanf("%s",&tienda[i].libro.autor);
                 printf("Introduce el numero de paginas: ");
                 scanf("%i",&tienda[i].libro.paginas);
                 printf("Introduce el precio: ");
@@ -77,9 +77,9 @@ int main(int argc, char const *argv[])
             }else if(elem=='r'){
                 tienda[i].tipo=elem;
                 printf("Introduce el titulo de la revista: ");
-                scanf("%200s",&tienda[i].revista.titulo);
+                scanf("%s",&tienda[i].revista.titulo);
                 printf("Introduce el mes: ");
-                scanf("%3s",&tienda[i].revista.mes);
+                scanf("%s",&tienda[i].revista.mes);
                 printf("Introduce el precio: ");
                 scanf("%f",&tienda[i].revista.precio);
                 i++;
@@ -100,6 +100,7 @@ int main(int argc, char const *argv[])
             printf("No hay accion definida para el caracter ");
             putchar(car);
         }
+        printf("Introduce el caracter i para insertar un nuevo elemento, o v para verlos todos. Finaliza con f");
         car=getchar();
     }
     return 0;
