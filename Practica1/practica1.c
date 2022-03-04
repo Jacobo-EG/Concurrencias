@@ -1,8 +1,8 @@
 /*
  ============================================================================
  Name        : Practica1.c
- Author      : 
- Version     :
+ Author      : Jacobo Elicha Garrucho
+ Version     : 0
  Copyright   : Your copyright notice
  Description :
  ============================================================================

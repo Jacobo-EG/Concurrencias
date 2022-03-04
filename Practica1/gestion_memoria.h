@@ -1,8 +1,8 @@
 /*
  * gestion_memoria.h
  *
- *  Created on: dd/mm/aaaa
- *  Author: name
+ *  Created on: 04/03/2022
+ *  Author: Jacobo Elicha Garrucho
  */
 
 #ifndef _GESTION_MEMORIA_

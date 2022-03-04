@@ -9,6 +9,7 @@
 				"-fdiagnostics-color=always",
 				"-g",
 				"${file}",
+				"gestion_memoria.c",
 				"-o",
 				"${fileDirname}/${fileBasenameNoExtension}"
 			],
