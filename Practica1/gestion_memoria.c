@@ -13,7 +13,15 @@ Función privada recomendada:
 Recibe una lista y compacta elementos que son consecutivos, devolviendo la lista compactada.
 */
 void compactar(T_Manejador *manejador_ptr){
-    ;
+    T_Manejador ptr = *manejador_ptr;
+    while(ptr!=NULL&&ptr->sig!=NULL){
+        if(ptr->fin==ptr->sig->inicio-1){
+            ptr->fin=ptr->sig->fin;
+            ptr->sig=ptr->sig->sig;
+        }else{
+            ptr=ptr->sig;
+        }
+    }
 }
 
 /* Crea la estructura utilizada para gestionar la memoria disponible. Inicialmente, s�lo un nodo desde 0 a MAX 
@@ -56,14 +64,22 @@ Si la operación se pudo llevar a cabo, es decir, existe un trozo con capacidad 
  */
 void obtener(T_Manejador *manejador, unsigned tam, unsigned* dir, unsigned* ok){
     T_Manejador ptr = *manejador;
-    while(ptr!=NULL && ((ptr->fin)-(ptr->inicio))<tam){
+    T_Manejador prev = NULL;
+    while(ptr!=NULL && ((ptr->fin)-(ptr->inicio))<tam-1){
+        prev=ptr;
         ptr = ptr->sig;
     }
     if(ptr!=NULL){
-        dir=ptr->inicio;
-        ok=1;
+        *dir=(ptr->inicio);
+        *ok=1;
+        if((ptr->fin)-(ptr->inicio)==tam-1){
+            prev->sig = (ptr->sig);
+            free(ptr);
+        }else{
+            (ptr->inicio)=((ptr->inicio)+tam);
+        }
     }else{
-        ok=0;
+        *ok=0;
     }
 }
 
@@ -80,5 +96,20 @@ void mostrar (T_Manejador manejador){
  * Se puede suponer que se trata de un trozo obtenido previamente.
  */
 void devolver(T_Manejador *manejador,unsigned tam,unsigned dir){
-    ;   
+    T_Manejador ptr = (T_Manejador)malloc(sizeof(struct T_Nodo));
+    T_Manejador aux=*manejador;
+    T_Manejador prev=NULL;
+    ptr->inicio=dir;
+    ptr->fin=dir+tam-1;
+    while(aux!=NULL&&aux->inicio<dir){
+        prev=aux;
+        aux=aux->sig;
+    }
+    ptr->sig=aux;
+    if(prev!=NULL){
+        prev->sig=ptr;
+    }else{
+        *manejador=ptr;
+    }
+    compactar(manejador);
 }

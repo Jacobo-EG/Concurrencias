@@ -54,7 +54,7 @@ int main(void) {
 
 	//Se ha enviado parte de la foto. Ya se puede dejar libre esa memoria
 	//Esta debería estar al principio
-	devolver(&manej, 200,0); 
+	devolver(&manej, 200,0);
 	assert(manej!=NULL);
 	assert(manej->inicio==0);
 	assert(manej->fin==200-1);
@@ -95,7 +95,7 @@ int main(void) {
 	// Se ha enviado parte de la foto. Ya se puede liberar esa memoria 
 	// Liberar en la posición 500, 100 unidades
 	devolver(&manej,100,500); 
-
+	mostrar(manej);
 	assert(manej!=NULL);
 	assert(manej->inicio==0);
 	assert(manej->fin==200-1);
