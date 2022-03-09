@@ -2,6 +2,10 @@
 #include <stdio.h>
 #include "gestion_tremor.h"
 
+/*
+Practica 2, Jacobo Elicha Garrucho, 09-03-2022
+*/
+
 // struct T_Nodo {
 // 	time_t fecha;
 // 	unsigned duracion;
@@ -24,14 +28,14 @@ Registra un episodio de tremor, con su fecha y duración, OK es igual a 1 si se 
 	void registrar(T_Lista * ptr_lista_head, const time_t * fecha, unsigned duracion,unsigned* ok){
         T_Lista ptr = malloc(sizeof(struct T_Nodo));
         if(ptr!=NULL){
-            ptr->fecha=*fecha;
+            ptr->fecha=(*fecha);
             ptr->duracion=duracion;
             ptr->sig=NULL;
-            struct T_Nodo * aux = *ptr_lista_head;
-            if(aux==NULL){
-              *ptr_lista_head=ptr;
+            if((*ptr_lista_head)==NULL){
+              (*ptr_lista_head)=ptr;
             }else{
-               while(aux->sig!=NULL){
+                struct T_Nodo * aux = (*ptr_lista_head);
+                while(aux->sig!=NULL){
                     aux=aux->sig;
                 }
                 aux->sig=ptr;
@@ -48,9 +52,9 @@ Libera todos los episodios que son anteriores a la fecha dada. Devuelve el núme
 	int liberar(T_Lista * ptr_lista_head, const time_t *  fecha){
         int num_lib=0;
         T_Lista aux;
-        while(*ptr_lista_head!=NULL&&ptr_lista_head->fecha<(*fecha)){
-            aux=*ptr_lista_head;
-            *ptr_lista_head=ptr_lista_head->sig;
+        while((*ptr_lista_head)!=NULL && ((*ptr_lista_head)->fecha)<(*fecha)){
+            aux=(*ptr_lista_head);
+            (*ptr_lista_head)=((*ptr_lista_head)->sig);
             free(aux);
             num_lib++;
         }

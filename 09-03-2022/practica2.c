@@ -22,8 +22,8 @@
 
 int main(void) {
 
-	int ok;
-	T_Lista lista_tremor_head = malloc(sizeof(struct T_Nodo));
+	unsigned ok;
+	T_Lista lista_tremor_head = NULL;
 	time_t now_time;
 	time_t pass_time;
 	
