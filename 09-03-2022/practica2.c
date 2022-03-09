@@ -1,7 +1,7 @@
 /*
  ============================================================================
  Name        : Practica2.c
- Author      : 
+ Author      : Jacobo Elicha Garrucho
  Version     :
  Copyright   : Your copyright notice
  Description :
@@ -23,7 +23,7 @@
 int main(void) {
 
 	int ok;
-	T_Lista lista_tremor_head = NULL;
+	T_Lista lista_tremor_head = malloc(sizeof(struct T_Nodo));
 	time_t now_time;
 	time_t pass_time;
 	
