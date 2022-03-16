@@ -60,7 +60,7 @@ int main(int argc, char const *argv[])
     }
 
     FILE * ptr_file;
-    if((ptr_file=fopen(argv[1],"w"))==NULL){
+    if((ptr_file=fopen(argv[1],"a"))==NULL){    //Si ponemos "w" nos crea el fichero si no existe y escribe, si existe, lo borra y escribe de cero.
         perror("errpr al abrir el fichero");
         exit(-1);
     }
