@@ -9,7 +9,6 @@
 				"-fdiagnostics-color=always",
 				"-g",
 				"${file}",
-				"gestion_tremor.c",
 				"-o",
 				"${fileDirname}/${fileBasenameNoExtension}"
 			],

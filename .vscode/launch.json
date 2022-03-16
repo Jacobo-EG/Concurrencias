@@ -9,7 +9,7 @@
             "type": "lldb",
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}",
-            "args": [],
+            "args": ["ficherotexto.txt"],
             "stopAtEntry": true,
             "cwd": "${fileDirname}",
             "environment": [],
