@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+    {
+        "type": "cppdbg",
+        "name": "DebugPracticaArbol",
+        "request": "launch",
+        "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+        "args": ["${fileDirname}\\imagen\\crisantemoCifrado.jpg","${fileDirname}\\imagen\\crisantemo.jpg"],
+        "cwd": "${fileDirname}",
+        "MIMode": "gdb",
+        "miDebuggerPath": "C:\\mingw64\\bin\\gdb.exe",
+        "externalConsole": false,
+        "preLaunchTask": "CompilarPracticaEncriptado" 
+    }
+    ]
+}
+    
