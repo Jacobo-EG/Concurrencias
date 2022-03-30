@@ -9,6 +9,7 @@
 				"-fdiagnostics-color=always",
 				"-g",
 				"${file}",
+				"${fileDirname}/circular.c",
 				"-o",
 				"${fileDirname}/${fileBasenameNoExtension}"
 			],
