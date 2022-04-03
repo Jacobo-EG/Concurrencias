@@ -27,7 +27,7 @@ void AnyadirProceso(LProc *lista, int idproc){
 }
 
 void MostrarLista(LProc lista){
-    printf("\n Lista cricular \n");
+    printf("\n Lista circular \n");
    if(lista == NULL){
        printf(" --vacia-- \n");
    }else{
