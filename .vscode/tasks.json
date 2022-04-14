@@ -9,7 +9,7 @@
 				"-fdiagnostics-color=always",
 				"-g",
 				"${file}",
-				"${fileDirname}/Componentes.c",
+				"${fileDirname}/Mprocesos.c",
 				"-o",
 				"${fileDirname}/${fileBasenameNoExtension}"
 			],

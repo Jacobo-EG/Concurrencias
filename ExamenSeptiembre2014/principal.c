@@ -1,41 +1,72 @@
-#include <assert.h>
+#include <stdio.h>
 #include <stdlib.h>
-#include "circular.h"
+#include "Sistema.h"
+#include <string.h>
 
-int main(int argc, char const *argv[])
-{
-    LProc lista;
 
-    Crear(&lista);
-    assert(lista == NULL);
+int main() {
+  LSistema l;
+  char idh[3];
+  
+  
+  Crear(&l);
+  Mostrar(l);
+  printf("\n");
+  InsertarProceso ( &l, 4);
+  Mostrar(l);
+  printf("\n");
+ InsertarProceso ( &l, 6);
+  Mostrar(l);
+  printf("\n");
 
-    MostrarLista(lista);
+   strcpy(idh,"h1");
+  InsertarHebra (&l, 6, idh, 7);
+  Mostrar(l);
+  printf("\n");
 
-    EjecutarProceso(&lista);
-    assert(lista == NULL);
 
-    AnyadirProceso(&lista, 1);
-    assert(lista->pid == 1);
-    assert(lista->sig == lista);
+   strcpy(idh,"h3");
+  InsertarHebra (&l, 6, idh, 1);
+  Mostrar(l);
+  printf("\n");
 
-    EjecutarProceso(&lista);
-    assert(lista == NULL);
+  InsertarProceso ( &l, 1);
+  Mostrar(l);
+  printf("\n");
 
-    AnyadirProceso(&lista, 1);
-    AnyadirProceso(&lista, 3);
-    AnyadirProceso(&lista, 5);
-    assert(lista->pid == 1);
-    assert(lista->sig->pid == 3);
-    assert(lista->sig->sig->pid == 5);
-    assert(lista->sig->sig->sig == lista);
-    MostrarLista(lista); // 1 3 5
+  InsertarProceso ( &l, 2);
+  Mostrar(l);
+  printf("\n");
 
-    EjecutarProceso(&lista);
-    EjecutarProceso(&lista);
-    assert(lista->pid == 5);
-    assert(lista->sig == lista);
+   strcpy(idh,"h2");
+  InsertarHebra (&l, 6, idh, 4);
+  Mostrar(l);
+  printf("\n");
 
-    MostrarLista(lista); // 5
+      strcpy(idh,"h8");
+  InsertarHebra (&l, 2, idh, 3);
+  Mostrar(l);
+  printf("\n");
+    strcpy(idh,"h5");
+  InsertarHebra (&l, 2, idh, 2);
+  Mostrar(l);
+  printf("\n");
 
-    return 0;
+
+      strcpy(idh,"h7");
+  InsertarHebra (&l, 2, idh, 10);
+  Mostrar(l);
+  printf("\n");
+
+ InsertarProceso ( &l, 5);
+  Mostrar(l);
+  printf("\n");
+
+
+
+ 
+  Destruir(&l);
+  Mostrar(l);
+  printf("\n");
+  return 0;
 }
