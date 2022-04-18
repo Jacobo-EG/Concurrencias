@@ -27,6 +27,9 @@ T_user * createUser(char *name, int uid, char *dir){
         exit(-1);
     }
 
+    (nuevo->userName_) = malloc(sizeof(name));
+    (nuevo->homeDirectory_) = malloc(sizeof(dir));
+
     nuevo->uid_ = uid;
     strcpy((nuevo->userName_), name);
     strcpy((nuevo->homeDirectory_), dir);
@@ -101,7 +104,7 @@ int deleteUser(T_userList* list, char* userName){
     T_user* ptr = list->head_;
 
     while(ok == -1 && ptr != NULL){
-        if(strcmp(ptr->userName_,userName)==0){
+        if(strcmp(ptr->userName_,userName) == 0){
                 ok = 0;
                 if(list->numberOfUsers_ == 1){
 
@@ -113,13 +116,15 @@ int deleteUser(T_userList* list, char* userName){
                 
                 }else{
 
-                    ptr->nextUser_->previousUser_ = ptr->previousUser_;
-                    ptr->previousUser_->nextUser_ = ptr->nextUser_;
-
                     if(ptr->previousUser_ == NULL){
                         list->head_ = ptr->nextUser_;
+                        ptr->nextUser_->previousUser_ = ptr->previousUser_;
                     }else if(ptr->nextUser_ == NULL){
                         list->tail_ = ptr->previousUser_;
+                        ptr->previousUser_->nextUser_ = ptr->nextUser_;
+                    }else{
+                        ptr->nextUser_->previousUser_ = ptr->previousUser_;
+                        ptr->previousUser_->nextUser_ = ptr->nextUser_; 
                     }
 
                     free(ptr);
@@ -137,7 +142,7 @@ void printUserList(T_userList list, int reverse){
             printf("--- Lista vacia --- \n");
         }
         while(list.head_ != NULL){
-            printf("Nombre: %s, UID: %i, home directory: %s",list.head_->userName_,list.head_->uid_,list.head_->homeDirectory_);
+            printf("Nombre: %s, UID: %i, home directory: %s \n",list.head_->userName_,list.head_->uid_,list.head_->homeDirectory_);
             list.head_ = list.head_->nextUser_;
         }
     }else{
@@ -145,8 +150,8 @@ void printUserList(T_userList list, int reverse){
             printf("--- Lista vacia --- \n");
         }
         while(list.tail_ != NULL){
-            printf("Nombre: %s, UID: %i, home directory: %s",list.tail_->userName_,list.tail_->uid_,list.tail_->homeDirectory_);
-            list.tail_ = list.tail_->nextUser_;
+            printf("Nombre: %s, UID: %i, home directory: %s \n",list.tail_->userName_,list.tail_->uid_,list.tail_->homeDirectory_);
+            list.tail_ = list.tail_->previousUser_;
         }
     }
 }

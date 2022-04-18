@@ -39,9 +39,9 @@ int main(void) {
 	if (isEmpty(q)) puts("Now the queue is empty.");
 	else puts("Now the queue contains something.");
 
-	// result = process("C:\\Users\\galvez\\eclipse-workspace\\RPN\\src\\source.calc");
-	// printf("The result from the file is %d.\n", result);
-	// return EXIT_SUCCESS;
+	result = process("source.calc");
+	printf("The result from the file is %d.\n", result);
+	return EXIT_SUCCESS;
 }
 
 int text2Int(char * text) {
@@ -57,5 +57,29 @@ int isOperator(char * text){
 
 #define MAX_LENGTH 1024
 int process(char * filename) {
-	return 0;
+
+	FILE* f = fopen(filename,"r");
+	char * cadena = malloc((sizeof(char)*5));
+	if(f == NULL){
+		perror("No ha sido posible abrir el fichero.");
+		exit(-1);
+	}
+
+	T_Stack q = create();
+
+	while(!feof(f)){
+		fgets(cadena,6,f);
+		if(isOperator(cadena)){
+			pushOperator(&q,*cadena);
+		}else{
+			push(&q,text2Int(cadena));
+		}
+	}
+
+	int result;
+	pop(&q,&result);
+
+	fclose(f);
+
+	return result;
 }
