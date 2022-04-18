@@ -9,7 +9,7 @@
 				"-fdiagnostics-color=always",
 				"-g",
 				"${file}",
-				"${fileDirname}/userList.c",
+				"${fileDirname}/Stack.c",
 				"-o",
 				"${fileDirname}/${fileBasenameNoExtension}"
 			],
