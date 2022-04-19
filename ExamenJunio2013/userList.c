@@ -27,8 +27,8 @@ T_user * createUser(char *name, int uid, char *dir){
         exit(-1);
     }
 
-    (nuevo->userName_) = malloc(sizeof(name));
-    (nuevo->homeDirectory_) = malloc(sizeof(dir));
+    (nuevo->userName_) = malloc(sizeof(char)*(strlen(name)+1));
+    (nuevo->homeDirectory_) = malloc(sizeof(char)*(strlen(dir)+1));
 
     nuevo->uid_ = uid;
     strcpy((nuevo->userName_), name);
