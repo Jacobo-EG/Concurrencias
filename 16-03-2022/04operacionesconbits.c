@@ -6,7 +6,7 @@ void printBits(unsigned num, unsigned size)
     printf("%i ", num & 0x01);
 }
 
-void main()
+int main()
 {
    unsigned a = 123; //111 1011
    unsigned b = 87;  //101 0111 
@@ -23,4 +23,6 @@ void main()
    printBits(a << 4,sizeof(unsigned)*8);
    printf("\nBitwise Right Shift (\">>\") ");
    printBits(a >> 4,sizeof(unsigned)*8);
+
+   return 0;
 }
