@@ -9,7 +9,7 @@
 				"-fdiagnostics-color=always",
 				"-g",
 				"${file}",
-				"${fileDirname}/Stack.c",
+				"${fileDirname}/Hotel.c",
 				"-o",
 				"${fileDirname}/${fileBasenameNoExtension}"
 			],

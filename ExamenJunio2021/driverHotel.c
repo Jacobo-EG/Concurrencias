@@ -2,7 +2,7 @@
  * driverHotel.c
  *
  *  Created on: 9 abr. 2021
- *      Author: RZP
+ *      Author: Jacobo Elicha
  */
 #include "Planta.h"
 #include "Hotel.h"
@@ -43,7 +43,7 @@ int main(){
 	nuevoClienteHotel(hotel,5,45,"Abel Justo",27);
 	imprimirHotel(hotel,5);
 	printf("\n\nBorramos los que salen el 27\n\n");
-	//borrarFechaSalidaHotel(hotel,5,27);
+	borrarFechaSalidaHotel(hotel,5,27);
 	imprimirHotel(hotel,5);
 	printf("\n\nAhora borramos el hotel\n\n");
 	borrarHotel(hotel,5);

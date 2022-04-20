@@ -26,13 +26,8 @@ void crear(ListaHab *lh){
 void nuevoCliente(ListaHab *lh,unsigned nh,char *nombre,unsigned fs){
 	ListaHab ptr = *lh;
 	ListaHab prev = ptr;
-		
-	while(ptr != NULL && ptr->numHab < nh){
-		prev = ptr;
-		ptr = ptr->sig;
-	}
-		
-	if(ptr == NULL){
+
+	if(*lh == NULL){
 		ListaHab nuevo = malloc(sizeof(struct Nodo));
 		if(nuevo == NULL){
 			perror("No se ha podido asignar memoria para la creacion de la habitacion.");
@@ -43,19 +38,46 @@ void nuevoCliente(ListaHab *lh,unsigned nh,char *nombre,unsigned fs){
 		strcpy(nuevo->nombre,nombre);
 		nuevo->sig = NULL;
 
-		ptr = nuevo;
+		*lh = nuevo;
 	}else{
-		ListaHab nuevo = malloc(sizeof(struct Nodo));
-		if(nuevo == NULL){
-			perror("No se ha podido asignar memoria para la creacion de la habitacion.");
-			exit(-1);
+		
+		while(ptr != NULL && ptr->numHab < nh){
+			prev = ptr;
+			ptr = ptr->sig;
 		}
-		nuevo->numHab = nh;
-		nuevo->fechaSalida = fs;
-		strcpy(nuevo->nombre,nombre);
+		
+		if(ptr == NULL){
+			ListaHab nuevo = malloc(sizeof(struct Nodo));
+			if(nuevo == NULL){
+				perror("No se ha podido asignar memoria para la creacion de la habitacion.");
+				exit(-1);
+			}
+			nuevo->numHab = nh;
+			nuevo->fechaSalida = fs;
+			strcpy(nuevo->nombre,nombre);
+			nuevo->sig = NULL;
 
-		nuevo->sig = ptr;
-		prev->sig = nuevo;
+			prev->sig = nuevo;
+		}else if(ptr->numHab == nh){
+			ptr->fechaSalida = fs;
+		}else{
+			ListaHab nuevo = malloc(sizeof(struct Nodo));
+			if(nuevo == NULL){
+				perror("No se ha podido asignar memoria para la creacion de la habitacion.");
+				exit(-1);
+			}
+			nuevo->numHab = nh;
+			nuevo->fechaSalida = fs;
+			strcpy(nuevo->nombre,nombre);
+			if(ptr == *lh){
+				nuevo->sig = ptr;
+				*lh = nuevo;
+			}else{
+				nuevo->sig = ptr;
+				prev->sig = nuevo;	
+			}
+			
+		}
 	}
 	
 }
@@ -81,5 +103,24 @@ void borrar(ListaHab *lh){
 }
 
 void borrarFechaSalida(ListaHab *lh,unsigned fs){
-	
+	ListaHab ptr = *lh;
+	ListaHab prev = ptr;
+
+	while(ptr != NULL && ptr->fechaSalida == fs){
+		prev = ptr->sig;
+		free(ptr);
+		*lh = prev;
+		ptr = prev;
+	}
+
+	while(ptr != NULL ){
+		if(ptr->fechaSalida == fs){
+			prev->sig = ptr->sig;
+			free(ptr);
+			ptr = prev->sig;
+		}else{
+			prev = ptr;
+			ptr = ptr->sig;
+		}
+	}
 }
