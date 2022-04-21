@@ -1,6 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "cifrado.h"
+
+// typedef struct TBox *TCifrado;
+// struct TBox {
+//   unsigned char esSBox;      //verdadero si es una SumaBox, falso si es una XORBox
+//   unsigned char bitACambiar; //valor para indicar si en una XORBox se
+//                              //cambia el valor del primer o del ultimo bit,
+//                              //segun las constantes indicadas arriba
+//   unsigned char valorASumar; //en una SumaBox: valor a sumar
+//   struct TBox *sig;
+// };
 
 void crearEsquemaDeCifrado (TCifrado *cf){
     *cf = NULL;
@@ -9,21 +20,36 @@ void crearEsquemaDeCifrado (TCifrado *cf){
 void insertarBox (TCifrado * cf, struct TBox box, unsigned char *ok){
     if(*cf == NULL ){
         if(box.esSBox){
-            box.sig = NULL;
-            *cf = &box;
+            struct TBox * aux = malloc(sizeof(struct TBox));
+            aux->valorASumar = box.valorASumar;
+            aux->esSBox = box.esSBox;
+            aux->sig = NULL;
+            *cf = aux;
             *ok = 1;
         }else{
             *ok = 0;
         }
     }else{
         TCifrado ptr = *cf;
-        while(ptr->sig != NULL){        //Error aqui ----------
+        while(ptr->sig != NULL){         
             ptr = ptr->sig;
         }
         if(ptr->esSBox != box.esSBox){
-            box.sig = NULL;
-            ptr->sig = &box;
+            struct TBox * aux = malloc(sizeof(struct TBox));
+            if(box.esSBox){
+                aux->valorASumar = box.valorASumar;
+                aux->esSBox = box.esSBox;
+                aux->sig = NULL;
+                ptr->sig = aux;
+            }else{
+                aux->bitACambiar = box.bitACambiar;
+                aux->esSBox = box.esSBox;
+                aux->sig = NULL;
+                ptr->sig = aux;
+            }
             *ok = 1;
+        }else{
+            *ok = 0;
         }
     }
 }
@@ -33,7 +59,7 @@ unsigned char aplicarBox (struct TBox box, unsigned char valor){
     if(box.esSBox){
         resultado = box.valorASumar + valor;
     }else{
-        if(box.bitACambiar == 0){
+        if(box.bitACambiar == CAMBIA_BIT_POS_0){
             resultado = valor^1;
         }else{
             resultado = valor^128;
