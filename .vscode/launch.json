@@ -5,11 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch Jardines",
+            "request": "launch",
+            "mainClass": "peterson03.Jardines",
+            "projectName": "Concurrencias_9467567c"
+        },
+        {
             "name": "DebugC",
             "type": "lldb",
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}",
-            "args": ["ficherotexto.txt"],
+            "args": [
+                "ficherotexto.txt"
+            ],
             "stopAtEntry": true,
             "cwd": "${fileDirname}",
             "environment": [],
