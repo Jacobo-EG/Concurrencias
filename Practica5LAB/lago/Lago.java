@@ -71,8 +71,9 @@ public class Lago {
 
 		nivel--;
 
-		f0Dec = false;
+
 		f1IncDec = false;
+		f0Dec = false;
 
 	}
 
@@ -93,8 +94,9 @@ public class Lago {
 
 		nivel--;
 
-		f1Dec = false;
+
 		f1IncDec = false;
+		f1Dec = false;
 	}
 
 	public int nivel() {
