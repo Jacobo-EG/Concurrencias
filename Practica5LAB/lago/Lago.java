@@ -11,7 +11,8 @@ public class Lago {
 	private volatile boolean f0Dec = false;
 	private volatile boolean f1Dec = false;
 	private int turno = 0;
-	private int turno2;
+	private int turno1 = 0;
+	private int turno2 = 0;
 
 
 	public Lago(int valorInicial) {
@@ -59,7 +60,7 @@ public class Lago {
 
 
 		f0Dec = true;
-		turno = 1;
+		turno1 = 1;
 
 		while(f1Dec && turno == 1) Thread.yield();
 
@@ -82,7 +83,7 @@ public class Lago {
 
 
 		f1Dec = true;
-		turno = 0;
+		turno1 = 0;
 
 		while(f0Dec && turno == 0) Thread.yield();
 
