@@ -40,6 +40,5 @@ public class Barberia {
 			scNum.release();
 		}
 		
-
 	}
 }
