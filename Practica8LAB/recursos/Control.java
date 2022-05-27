@@ -23,19 +23,19 @@ public class Control {
 
 		System.out.println("Proceso " + id + " pide " + num + " recursos. Quedan: " + numRec);
 
-		
+
 
 		// while(esperando)
 		// 	wait();
 
-		// if(num > numRec){
-		// 	lista.addLast(id);
-		// 	esperando = true;
-		// }
+		if(num > numRec){
+			lista.addLast(id);
+			esperando = true;
+		}
 
-		// while(num > numRec){
-		// 	wait();
-		// }
+		while(num > numRec){
+			wait();
+		}
 
 		// numRec -= num;
 		// esperando = false;
