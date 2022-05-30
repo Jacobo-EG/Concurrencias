@@ -1,4 +1,4 @@
-package barberodormilon;
+package barberodormilon.barberodormilon;
 
 import java.util.concurrent.Semaphore;
 

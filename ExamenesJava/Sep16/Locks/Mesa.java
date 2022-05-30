@@ -39,7 +39,7 @@ public class Mesa {
 		l.lock();
 		try{
 			numJugado++;
-
+			
 		}finally{
 			l.unlock();
 		}
