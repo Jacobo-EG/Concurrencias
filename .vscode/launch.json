@@ -6,6 +6,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Principal",
+            "request": "launch",
+            "mainClass": "Junio18.pizza.Principal",
+            "projectName": "Concurrencias_9467567c"
+        },
+        {
+            "type": "java",
+            "name": "Launch Principal",
+            "request": "launch",
+            "mainClass": "Junio18.agua.Principal",
+            "projectName": "Concurrencias_9467567c"
+        },
+        {
+            "type": "java",
+            "name": "Launch Principal",
+            "request": "launch",
+            "mainClass": "Principal",
+            "projectName": "Concurrencias_9467567c"
+        },
+        {
+            "type": "java",
+            "name": "Launch Principal",
+            "request": "launch",
+            "mainClass": "agua.Principal",
+            "projectName": "Concurrencias_9467567c"
+        },
+        {
+            "type": "java",
+            "name": "Launch Principal",
+            "request": "launch",
+            "mainClass": "pizza.Principal",
+            "projectName": "Concurrencias_9467567c"
+        },
+        {
+            "type": "java",
             "name": "Launch Jardines",
             "request": "launch",
             "mainClass": "peterson03.Jardines",

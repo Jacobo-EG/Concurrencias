@@ -1,4 +1,4 @@
-package pizza;
+package Junio18.pizza;
 import java.util.*;
 public class Estudiante extends Thread{
 	private Mesa mesa;

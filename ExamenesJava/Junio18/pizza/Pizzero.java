@@ -1,4 +1,4 @@
-package pizza;
+package Junio18.pizza;
 
 import java.util.Random;
 
@@ -13,9 +13,9 @@ public class Pizzero extends Thread{
 	public void run(){
 		while (true){
 			try {
-				mesa.nuevoCliente();
-				Thread.sleep(r.nextInt(500));	
 				mesa.nuevaPizza();
+				Thread.sleep(r.nextInt(500));	
+				mesa.nuevoCliente();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
