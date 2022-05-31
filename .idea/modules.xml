@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/23-03-2022/23-03-2022.iml" filepath="$PROJECT_DIR$/23-03-2022/23-03-2022.iml" />
+      <module fileurl="file://$PROJECT_DIR$/25-03-2022/25-03-2022.iml" filepath="$PROJECT_DIR$/25-03-2022/25-03-2022.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Concurrencias.iml" filepath="$PROJECT_DIR$/Concurrencias.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Repaso-Parcial-Java/Examenes/Examenes.iml" filepath="$PROJECT_DIR$/Repaso-Parcial-Java/Examenes/Examenes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practica6/Practica6.iml" filepath="$PROJECT_DIR$/Practica6/Practica6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Repaso-Parcial-Java/Practicas/Practica8/Practica8.iml" filepath="$PROJECT_DIR$/Repaso-Parcial-Java/Practicas/Practica8/Practica8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practica8LAB/Practica8LAB.iml" filepath="$PROJECT_DIR$/Practica8LAB/Practica8LAB.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Repaso-Parcial-Java/Practicas/Practicas.iml" filepath="$PROJECT_DIR$/Repaso-Parcial-Java/Practicas/Practicas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Repaso-Parcial-Java/Repaso-Parcial-Java.iml" filepath="$PROJECT_DIR$/Repaso-Parcial-Java/Repaso-Parcial-Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/practica4/practica4.iml" filepath="$PROJECT_DIR$/practica4/practica4.iml" />
+    </modules>
+  </component>
+</project>
