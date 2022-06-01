@@ -1,4 +1,4 @@
-package Examenes.Sep20;
+package Sep20;
 
 public class Alumno extends Thread{
 	private java.util.Random rnd = new java.util.Random();

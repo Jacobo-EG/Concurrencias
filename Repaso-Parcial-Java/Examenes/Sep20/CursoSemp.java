@@ -1,4 +1,4 @@
-package Examenes.Sep20;
+package Sep20;
 
 import java.util.concurrent.Semaphore;
 
